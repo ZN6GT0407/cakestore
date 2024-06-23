@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-t6m-(#t$j)y%62a^bt3^mt3)$cu6^cas%d!7033svuf2#@ke+e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['cakestore.onrender.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
