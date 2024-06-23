@@ -51,3 +51,17 @@ def user_login(request):
     else:
         form = AuthenticationForm()
     return render(request, 'shop/login.html', {'form': form})
+
+@login_required
+def order(request):
+    if request.method == 'POST':
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            order = form.save(commit=False)
+            order.user = request.user
+            order.save()
+            return redirect('order_confirmaton', order_id=order.id)
+        
+    else:
+        form = OrderForm()
+    return render(request, 'shop/order.html', {'form': form})
