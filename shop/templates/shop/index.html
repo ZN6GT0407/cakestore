@@ -12,7 +12,11 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ cake.name }}</h5>
                         <p class="card-text">{{ cake.price }}</p>
-                        <a href="{% url 'order' %}" class="btn btn-primary">Order Now</a>
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'order' %}" class="btn btn-primary">Order Now</a>
+                        {% else %}
+                            <a href="{% url 'index' %}" class="btn btn-primary">Order Now</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
